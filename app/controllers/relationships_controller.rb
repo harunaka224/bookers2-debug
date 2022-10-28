@@ -1,8 +1,8 @@
 class RelationshipsController < ApplicationController
 
   def create
-  current_user.follow(params[:user_id])
-  redirect_to request.referer
+    current_user.follow(params[:user_id])
+    redirect_to request.referer
   end
 
   def destroy
@@ -12,17 +12,16 @@ class RelationshipsController < ApplicationController
 
   def follows
     user = User.find(params[:id])
-    @users = user.following_user.page(params[:page]).per(3).reverse_order
+    @users = user.following_user
   end
 
   def followers
     user = User.find(params[:id])
-    @users = user.follower_user.page(params[:page]).per(3).reverse_order
+    @users = user.follower_user
   end
 
-  def show
+  def index
   @user = User.find(params[:id])
-  @posts = @user.posts.page(params[:page]).reverse_order
   @following_users = @user.following_user
   @follower_users = @user.follower_user
   end
