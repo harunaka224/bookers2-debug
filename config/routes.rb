@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "home/about"=>"homes#about"
   get "relationships/followings"
   get "relationships/followers"
-  get "search" => "searches#search"
+  get "/search", to: "searches#search"
 
   devise_for :users
 
