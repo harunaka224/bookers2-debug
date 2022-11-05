@@ -1,1 +1,3 @@
-$('#favorite_btn_<%= @book.id %>').html("<%= j(render partial:'favorites/favorite-btn', local{book: @book)} %>");
+console.log('create.js.erb...')
+
+$('#favorite_btn_<%= @book.id %>').html("<%= j(render 'favorites/favorite-btn', book: @book) %>");
