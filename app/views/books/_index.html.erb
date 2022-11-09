@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% ranks.each do |book| %>
+    <% books.each do |book| %>
       <tr>
         <td>
           <%= link_to user_path(book.user.id) do %>
@@ -21,7 +21,7 @@
           <%= render "favorites/favorite-btn", book: book %>
         </td>
         <td><p><%= "コメント数: #{book.book_comments.count}"%></p></td>
-        <td></td>
+        
       </tr>
     <% end %>
   </tbody>
